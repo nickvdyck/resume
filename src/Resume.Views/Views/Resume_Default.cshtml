@@ -1,0 +1,147 @@
+@model ResumeViewModel
+@{
+    Layout = "_Layout-Bootstrap";
+    ViewData["Title"] = "Resume - Nick Van Dyck";
+}
+
+@section Styles {
+    <style>
+        h1 {
+            color: #7F1637;
+        }
+
+        h2 {
+            border-bottom: 1px solid;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            color: #808080;
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-top: 40px;
+        }
+
+        h4 {
+            color: #808080;
+            font-weight: 300;
+            font-size: 1.15rem;
+        }
+
+        .h1-subheader {
+            color: #808080;
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+
+        .time-span__subheading {
+            font-style: italic;
+        }
+
+        .avatar {
+            width: 135px;
+            height: 135px;
+        }
+
+        .color-purple {
+            color: #7F1637;
+        }
+    </style>
+}
+
+<header class="row my-5">
+    <picture class="d-none d-sm-flex col-sm-2">
+        <img class="avatar rounded-circle shadow" src="@Model.Picture" alt="avatar" />
+    </picture>
+    <div class="col-12 col-sm-5 d-flex flex-column justify-content-center">
+        <h1>@Model.Name</h1>
+        <div class="h1-subheader">@Model.JobTitle</div>
+    </div>
+    <div class="col-12 col-sm-5 d-flex flex-column justify-content-center align-items-end">
+        @foreach (var record in Model.ContactInfo) {
+            <div>
+                <span class="color-purple">@record.Type</span>: @record.Data
+            </div>
+        }
+    </div>
+</header>
+<main class="row">
+
+    <section class="col-12 mb-4">
+        <h2>About Me</h2>
+        @foreach (string chunk in Model.AboutMe) {
+        <p>@chunk</p>
+        }
+    </section>
+
+    <section class="col-12 mb-4">
+        <h2>Professional Experience</h2>
+
+        @foreach (var work in Model.WorkPlaces) {
+        <h3>@work.Position at @work.Company</h3>
+        <span class="time-span__subheading d-block mb-3">
+            @work.StartDate.ToString("MMMM").Substring(0,3) @work.StartDate.Year -
+            @if (@work.EndDate.Year == 1) {
+                @("Present")
+            } else {
+                @string.Format("{0} {1}", @work.EndDate.ToString("MMMM").Substring(0,3), @work.EndDate.Year)
+            }
+        </span>
+
+        @foreach (string chunk in @work.Summary.Split(new string[] { "\n\n" }, StringSplitOptions.None)) {
+            <p>@chunk</p>
+        }
+
+        <div>
+            <span>Highlights:</span>
+
+            <ul>
+                @foreach(var highlight in @work.Highlights) {
+                <li>@highlight</li>
+                }
+            </ul>
+        </div>
+        }
+    </section>
+
+    <section class="col-12 mb-4">
+        <h2>Education</h2>
+        @foreach(var school in Model.Schools) {
+        <h3>@school.Institution</h3>
+        <h4>@school.StudyType - @school.Area</h4>
+        <span class="time-span__subheading d-block mb-3">
+            @school.StartDate.ToString("MMMM").Substring(0,3) @school.StartDate.Year - @school.EndDate.ToString("MMMM").Substring(0,3)
+            @school.EndDate.Year
+        </span>
+        <ul>
+            @foreach(var course in school.Courses) {
+            <li>@course</li>
+            }
+        </ul>
+        }
+    </section>
+
+    <section class="col-12 mb-4">
+        <h2>Languages</h2>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    @foreach (var lang in Model.Languages) {
+                    <th scope="col">@lang.Name</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Fluency</th>
+                    @foreach (var lang in Model.Languages) {
+                    <td>@lang.Fluency</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>

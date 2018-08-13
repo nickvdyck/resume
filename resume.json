@@ -1,0 +1,212 @@
+{
+  "basics": {
+    "name": "Nick Van Dyck",
+    "label": "Software Engineer",
+    "picture": "https://avatars.githubusercontent.com/u/6469315?v=3",
+    "email": "vandyck.nick@outlook.com",
+    "website": "https://nvd.codes",
+    "summary": "I’m an enthusiastic and passionate software engineer who is fond of all things web, always striving to build user friendly, scalable and stable web solutions that get users engaged. Trained in the dark arts of full stack development I have had a chance to work in a broad range of technologies and languages. Eventually I hope to pursue a role where I can have a high impact on the product. In my spare time I like to hack on open source projects, read books or watch a good movie. \n\n Currently I have taken an interest in developing IoT solutions. Always up for a good cup of coffee and an absolute football aficionado.",
+    "location": {
+      "city": "London",
+      "countryCode": "UK",
+      "region": "London"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "vandycknick",
+        "url": "https://twitter.com/vandycknick"
+      },
+      {
+        "network": "GitHub",
+        "username": "nickvdyck",
+        "url": "https://github.com/nickvdyck"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "Nick Van Dyck",
+        "url": "https://www.linkedin.com/in/nickvandyck"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "MOO",
+      "position": "Software Engineer",
+      "website": "https://www.moo.com",
+      "startDate": "2017-01-01",
+      "summary": "MOO is a print and design company that offers a variety of business cards and other printed products to their customers. \n\n At MOO I was part of a small team that got tasked to build an application with a focus on a new customer segment. It targets and caters for professional and hobbyist designers to enable them to create astonishing print products with MOO. Historically mostly ignored but very valuable customers with high potential. The intent of the application was to allow this customer segment to develop print products by using the tools they know best and are the most comfortable with (Photoshop, InDesign, …). The goal of the application is to turn PDF’s into printable products and guide the customer throughout the process. We used a Python Flask back-end that is used as a back-end for front-end, exposing a specific set of tailored rest APIs. The front-end is written in React/Mobx with a strong emphasis on mobile first. A test driven first methodology and good CI pipelines allow us to ship new features to our customers at a fast pace.",
+      "highlights": [
+        "Frontend: React, Redux, Mobx, HTML5, Sass, Javascript, Babel, Webpack, ...",
+        "Backend: Python, Flask, Gunicorn",
+        "CI/Devops: Gitlab, Git, Kubernetes, Docker, AWS"
+      ]
+    },
+    {
+      "company": "Marks and Spencer",
+      "position": "Software Engineer",
+      "website": "https://marksandspencer.com",
+      "startDate": "2015-11-01",
+      "endDate": "2016-12-31",
+      "summary": "British retailer that specializes in clothing, homeware and luxury food products. \n\n I worked as part of a cross-functional agile team tasked to deliver an in-house rebuild of the Marks & Spencer’s Christmas Food to Order service. The application was developed as a modern twelve-factor app running on multiple cloud providers using Cloud Foundry allowing us to have high availability. I worked on both front-end and back-end for this application. The application was a great success with an uplift of 25% in sales year on year.",
+      "highlights": [
+        "12 factor web application deployed to serveral cloud foundry providers and regions",
+        "Frontend: Progressive enhancement, Sass, RxJS, Javascript, Babel, Webpack, ...",
+        "Backend: Python 3.5, Flask, Jinja2, Django, Waitress",
+        "CI/Devops: Github, Git, Cloud Foundry, Codeship"
+      ]
+    },
+    {
+      "company": "SDWorx",
+      "position": "Software Engineer",
+      "website": "http://sdworx.com",
+      "startDate": "2015-05-01",
+      "endDate": "2015-10-31",
+      "summary": "SD Worx is a Belgian based HR and payroll company. The company provides services related to employment, salary calculations, social legislation, taxation and human resources. \n\n As a software engineer I was involved in the development of their main web portal. High availability and strong performance were key for the project. I was heavily involved in making their website mobile friendly and I got involved in the development and maintenance of internal micro sites.",
+      "highlights": [
+        "Frontend: AngularJS, RxJS, Typescript",
+        "Backend: ASPNET MVC, Web Forms",
+        "CI/Devops: TeamCity"
+      ]
+    },
+    {
+      "company": "TecIT",
+      "position": "Analist Developer",
+      "website": "http://tecit.be",
+      "startDate": "2012-11-08",
+      "endDate": "2015-04-30",
+      "summary": "For Tec IT I worked as a try and hire developer for a company called SD Worx. I was given the opportunity to get exposed to a broad range of trainings and learned the ins and outs of web development. I gained experience in C#, ASPNET, Typescript, … The focus was heavily on their public website, but I also helped to setup several internal micro sites, like a marketing campaign management and contract management tool.",
+      "highlights": [
+        "Frontend: jQuery, Backbone, Knockout, gulp, node, npm, JavaScript, Typescript",
+        "Backend: ASPNET Webforms"
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "Thomas More-hogeschool, Belgium",
+      "area": "Computer engineering",
+      "studyType": "Bachelor of Applied Science - BASc",
+      "startDate": "2008-09-01",
+      "endDate": "2011-06-01",
+      "gpa": "",
+      "courses": [
+        "Application development",
+        "Databases",
+        "Web design and development",
+        "Data communications and networks"
+      ]
+    },
+    {
+      "institution": "University of Halmstad, Sweden",
+      "area": "Computer engineering",
+      "studyType": "Bachelor of Applied Science - BASc",
+      "startDate": "2011-02-01",
+      "endDate": "2011-05-01",
+      "gpa": "",
+      "courses": [
+        "Erasmus international internship.",
+        "Development of an intelligent FAQ system in ASP.NET for the students of Halmstad University. I was acting as a developer in an international team."
+      ]
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "TypeScript"
+      ]
+    },
+    {
+      "name": "C# and .NET",
+      "level": "",
+      "keywords": [
+        "C#",
+        "ASP.NET Core",
+        ".NET Core",
+        "NancyFX",
+        "MVC",
+        "Razor",
+        "SignalR"
+      ]
+    },
+    {
+      "name": "Node.JS",
+      "level": "",
+      "keywords": [
+        "Express",
+        "Gulp",
+        "Grunt",
+        "Bower",
+        "JSPM"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "",
+      "keywords": [
+        "React",
+        "RxJs",
+        "Redux",
+        "AngularJS",
+        "Backbone"
+      ]
+    },
+    {
+      "name": "Databases",
+      "level": "",
+      "keywords": [
+        "SQL",
+        "MYSQL",
+        "MongoDB"
+      ]
+    },
+    {
+      "name": "Cloud",
+      "level": "OK",
+      "keywords": [
+        "Azure",
+        "Cloud foundry",
+        "AWS",
+        "Digitalocean"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Dutch",
+      "fluency": "Mother tongue"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "French",
+      "fluency": "Basics"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Sports",
+      "keywords": [
+        "Football"
+      ]
+    },
+    {
+      "name": "Development",
+      "keywords": [
+        "Mobile",
+        "Web"
+      ]
+    }
+  ],
+  "references": []
+}
