@@ -4,7 +4,7 @@ namespace Resume.Services
 {
     public interface IResumeClient
     {
-         JsonResume GetResume();
+         JsonResume GetResume(string path);
     }
 
 }

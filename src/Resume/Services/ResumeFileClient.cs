@@ -1,9 +1,6 @@
 using System.IO;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Resume.Configuration;
 using Resume.Models;
 
 namespace Resume.Services
@@ -12,19 +9,16 @@ namespace Resume.Services
     {
         private IFileProvider FileProvider { get; set; }
 
-        private ResumeClientOptions Config { get; set; }
-
         private JsonResume Cache { get; set; }
 
-        public ResumeFileClient(IFileProvider fileProvider, IOptions<ResumeClientOptions> options)
+        public ResumeFileClient(IFileProvider fileProvider)
         {
             FileProvider = fileProvider;
-            Config = options.Value;
         }
 
-        public JsonResume GetResume()
+        public JsonResume GetResume(string location)
         {
-            var resumeFileInfo = FileProvider.GetFileInfo(Config.Location);
+            var resumeFileInfo = FileProvider.GetFileInfo(location);
             var stream = resumeFileInfo.CreateReadStream();
             var serializer = new JsonSerializer();
             using (var sr = new StreamReader(stream))

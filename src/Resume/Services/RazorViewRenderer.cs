@@ -12,15 +12,15 @@ using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 
-namespace Resume
+namespace Resume.Services
 {
-    public class RazorViewToStringRenderer
+    public class RazorViewRenderer
     {
         private IRazorViewEngine _viewEngine;
         private ITempDataProvider _tempDataProvider;
         private IServiceProvider _serviceProvider;
 
-        public RazorViewToStringRenderer(
+        public RazorViewRenderer(
             IRazorViewEngine viewEngine,
             ITempDataProvider tempDataProvider,
             IServiceProvider serviceProvider)
