@@ -1,0 +1,16 @@
+queue: Hosted VS2017
+
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
+
+trigger:
+- master
+
+steps:
+- script: |
+    dotnet run -p src/Resume -- validate
+    dotnet run -p src/Resume -- build
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/artifacts'
+    ArtifactName: resume
