@@ -73,7 +73,7 @@ namespace Resume.Commands
             var model = GetResumeViewModel();
             var page = await _razorViewRenderer.RenderViewToStringAsync("Views/Resume_Default.cshtml", model);
 
-            Directory.CreateDirectory("./artifacts");
+            Directory.CreateDirectory(Output);
 
             var resumeHtmlPath = $"{Output}/resume.html";
             var resumePdfPath = $"{Output}/resume.pdf";

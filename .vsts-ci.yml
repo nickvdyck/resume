@@ -6,11 +6,9 @@ trigger:
 - master
 
 steps:
-- script: |
-    dotnet run -p src/Resume -- validate
-    dotnet run -p src/Resume -- build
+- powershell: scripts/build.ps1
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/artifacts'
+    PathtoPublish: '$(Build.SourcesDirectory)/output'
     ArtifactName: resume
