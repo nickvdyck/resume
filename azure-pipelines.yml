@@ -1,6 +1,5 @@
-queue: Hosted VS2017
-
-name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
+pool:
+  vmImage: 'VS2017-Win2016'
 
 trigger:
 - master
