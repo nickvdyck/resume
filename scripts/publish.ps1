@@ -5,19 +5,19 @@
  .DESCRIPTION
     Deploys artifacts to an Azure Blob Storage Account
 
- .PARAMETER containerName
-    The subscription id where the template will be deployed.
+ .PARAMETER ContainerName
+    Azure blob storage container name
 
- .PARAMETER artifacts
-    Folder to upload to azure
+ .PARAMETER Source
+    Folder to upload to azure blob storage container
 #>
 
 param(
     [string]
-    $containerName = "resume",
+    $ContainerName = "resume",
 
     [string]
-    $artifacts = "./artifacts"
+    $Source = "./artifacts"
 )
 
 #******************************************************************************
@@ -31,37 +31,25 @@ if (!$env:AZURE_STORAGE_CONNECTION_STRING)
     throw "Azure connection string should be provided as an environment variable"
 }
 
-$container = az storage container show --name $containerName
+$container = az storage container show --name $ContainerName
 
 if (!$container)
 {
     Write-Host "Storage container does not exist creating container..."
 
-    $result = (az storage container create --name $containerName | ConvertFrom-Json)
+    $result = (az storage container create --name $ContainerName | ConvertFrom-Json)
 
     if ($result.created -ne $true) {
         Write-Error "Something went wrong creating storage container"
     }
 
-    $container = az storage container show --name $containerName
+    $container = az storage container show --name $ContainerName
 }
 
-$files = Get-ChildItem -Path $artifacts
-
-foreach ($file in $files)
-{
-    Write-Host "Uploading file $($file.FullName)"
-    $success = $(
-        az storage blob upload `
-            --container-name $containerName `
-            --name $file.Name `
-            --file $file.FullName
-    )
-
-    if (!$success)
-    {
-        throw "Error while upload file: $file.FullName"
-    }
-}
+$result = (
+    az storage blob upload-batch `
+        --destination $ContainerName `
+        --source $Source
+)
 
 Write-Host "Done..."
