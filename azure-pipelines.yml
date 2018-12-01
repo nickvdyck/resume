@@ -6,8 +6,17 @@ trigger:
 
 steps:
 - powershell: scripts/build.ps1
+  displayName: 'Build resume'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish deployment artifacts'
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/output'
-    ArtifactName: resume
+    PathtoPublish: '$(Build.SourcesDirectory)/artifacts'
+    ArtifactName: artifacts
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish deployment scripts'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/scripts'
+    ArtifactName: scripts
+

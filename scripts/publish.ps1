@@ -13,22 +13,39 @@
 #>
 
 param(
+
+    [Parameter(Mandatory = $True)]
+    [string]
+    $StorageAccountName,
+
     [string]
     $ContainerName = "resume",
 
     [string]
-    $Source = "./artifacts"
+    $Source = "$PSScriptRoot/../artifacts"
+
 )
 
 #******************************************************************************
 # Script body
 # Execution begins here
 #******************************************************************************
+
+Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-if (!$env:AZURE_STORAGE_CONNECTION_STRING)
-{
-    throw "Azure connection string should be provided as an environment variable"
+. "$PSScriptRoot/utils.ps1"
+
+$config = (
+    az storage account show-connection-string `
+        --name $StorageAccountName |
+    ConvertFrom-Json
+)
+
+if (!$config) {
+    throw "Azure connection string should be provided as an environment variable (AZURE_STORAGE_CONNECTION_STRING)"
+} else {
+    $env:AZURE_STORAGE_CONNECTION_STRING = $config.connectionString
 }
 
 $container = az storage container show --name $ContainerName
@@ -46,10 +63,10 @@ if (!$container)
     $container = az storage container show --name $ContainerName
 }
 
-$result = (
-    az storage blob upload-batch `
+Exec az storage blob upload-batch `
         --destination $ContainerName `
         --source $Source
-)
 
-Write-Host "Done..."
+$env:AZURE_STORAGE_CONNECTION_STRING = $null
+
+Write-Host 'Done' -ForegroundColor Magenta
