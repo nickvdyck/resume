@@ -1,34 +1,29 @@
 <#
  .SYNOPSIS
-    Deploys a blob to Azure
+    Build resume.json file
 
  .DESCRIPTION
-    Deploys artifacts to an Azure Blob Storage Account
+    Validate and build resume.json file
 
  .PARAMETER artifacts
-    Folder to upload to azure
+    Output folder
 #>
 
 param(
 
-    [String]
-    $Output = "$PSScriptRoot/../artifacts"
+    [String] $Output = "$PSScriptRoot/../artifacts"
 
 )
 
-Set-StrictMode -Version 2
+Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 . "$PSScriptRoot/utils.ps1"
 
 Remove-Item -Recurse $Output -ErrorAction Ignore
 
-Exec dotnet run `
-        -p "src/Resume" `
-        -- validate
+Exec resume validate -l "src/resume.json"
 
-Exec dotnet run `
-        -p "src/Resume" `
-        -- build -o "$Output"
+Exec resume build -l "src/resume.json" -o "$Output"
 
-Copy-Item -Path "./resume.json" -Destination "$Output"
+Copy-Item -Path "./src/resume.json" -Destination "$Output"

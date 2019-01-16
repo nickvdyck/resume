@@ -5,18 +5,20 @@ trigger:
 - master
 
 steps:
+- task: DotNetCoreInstaller@0
+  inputs:
+    packageType: 'sdk'
+    version: '2.2.102'
+
+- powershell: |
+    dotnet --info
+    dotnet tool install -g resume-cli
+  displayName: 'Install resume-cli tool'
+
 - powershell: scripts/build.ps1
-  displayName: 'Build resume'
+  displayName: 'Validate and build resume'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish deployment artifacts'
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/artifacts'
-    ArtifactName: artifacts
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish deployment scripts'
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/scripts'
-    ArtifactName: scripts
-
+- powershell: scripts/publish.ps1
+  displayName: 'Publish resume'
+  env:
+      AZURE_STORAGE_CONNECTION_STRING: $(AZURE_STORAGE_CONNECTION_STRING)

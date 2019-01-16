@@ -1,4 +1,0 @@
-- task: Azure Cli
-    - Script location: Inline script
-    - Inline script: powershell -File ./publish.ps1 -containerName resume
-    - Working Directory: $(System.DefaultWorkingDirectory)/resume/resume

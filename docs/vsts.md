@@ -1,5 +1,0 @@
-- https://github.com/Microsoft/vsts-agent/blob/master/docs/preview/yamlgettingstarted.md
-- https://github.com/Microsoft/vsts-tasks
-- https://github.com/Microsoft/vsts-image-generation
-- https://github.com/MicrosoftDocs/pipelines-dotnet-core
-- https://docs.microsoft.com/en-gb/vsts/pipelines/get-started-yaml?view=vsts&tabs=gitvsts

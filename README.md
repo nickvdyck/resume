@@ -5,27 +5,27 @@
 ## Introduction
 This repository holds the data for my resume. It uses a schema defined by [JSON Resume](https://jsonresume.org/), which is a open source initiative to create a JSON-based standard for resumes.
 
-This project uses a cli tool to validate and build my resume. The repository is hooked up to azure pipelines to execute and build on every commit and than to push those changes in a continues integrated fashion to my azure blob storage where my assets are hosted.
+This project uses a cli tool to validate and build my resume. The repository is hooked up to a CI pipelines which executes a build on every push to master. The pipeline validates, builds and publishes my resume to a blob storage where my assets are hosted.
 
-## Getting started
+## How to build
 
-Download the [2.1.402](https://www.microsoft.com/net/download) .NET Core SDK or newer.
-This should install all the required tools and binaries required to build this project.
 
 ## Structure
 
 ```sh
 ├── scripts
+│   ├── build.ps1
+│   ├── publish.ps1
+│   └── utils.ps1
 ├── src
-│   ├── Resume
-│   ├── Resume.Models
-│   └── Resume.Views
-└── resume.json
+│   └── resume.json
+├── README.md
+
 ```
 
 The scripts contains `build.ps1` and `publish.ps1`, these scripts are just to respectively build my project and deploy the output to azure blob storage.
 
-- `src/Resume`: Is a cli tool that can be used to build and/or validate your `resume.json` file.
-- `src/Resume.Models`: Contains resume domain models.
-- `src/Resume.Views`: Contains razor views to build an html page or pdf from a `resume.json` file. These views are consumed by the resume cli tool.
-- `resume.json`: My actual resume in a json format defined by [JSON Resume](https://jsonresume.org/).
+- `scripts/build.ps1`: Used in CI to validate and build my resume. This will an `html` and `pdf` artefact of my resume.
+- `scripts/publish.ps1`: Will publish artefacts created by `build.ps1` script to a blob container. You will need to set an environment variable `AZURE_STORAGE_CONNECTION_STRING` with a connection string to you storage account.
+- `scripts/utils.ps1`: some powershell utility functions
+- `src=resume.json`: My actual resume in a json format defined by [JSON Resume](https://jsonresume.org/).
