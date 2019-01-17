@@ -12,7 +12,7 @@ steps:
 
 - powershell: |
     dotnet --info
-    dotnet tool install -g resume-cli
+    dotnet tool install -g resume-cli --version 0.2.0
   displayName: 'Install resume-cli tool'
 
 - powershell: scripts/build.ps1
