@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Nick Van Dyck",
-    "label": "Software Engineer",
+    "label": "Full Stack Web Developer",
     "picture": "https://avatars.githubusercontent.com/u/6469315?v=3",
     "email": "vandyck.nick@outlook.com",
     "website": "https://nvd.codes",
-    "summary": "I’m an enthusiastic and passionate software engineer who is fond of all things web, always striving to build user friendly, scalable and stable web solutions that get users engaged. Trained in the dark arts of full stack development I have had a chance to work in a broad range of technologies and languages. Eventually I hope to pursue a role where I can have a high impact on the product. In my spare time I like to hack on open source or personal projects, read books or watch a good movie.",
+    "summary": "I’m an enthusiastic and passionate senior software engineer with over 6 years of experience. I'm fond of all things web and always striving to build user friendly, scalable and stable web solutions that get users engaged. Trained in the dark arts of full stack development I have gained experience in a broad range of technologies and languages. Eventually I hope to pursue a role where I can have a high impact on the product. In my spare time I like to hack on open source or personal projects, read books or watch a good movie.",
     "location": {
       "city": "Antwerp",
       "countryCode": "BE",
@@ -34,30 +34,17 @@
     {
       "name": "MOO",
       "location": "London, UK",
-      "description": "MOO is a print and design company that offers a variety of business cards and other printed products to their customers.",
+      "description": "MOO is a premium print and design company transforming the physical branding space with unique and beautiful products.",
       "position": "Senior Software Engineer",
       "url": "https://www.moo.com",
       "startDate": "2017-01-01",
       "endDate": "2018-12-19",
-      "summary": "At MOO I was part of a small team that got tasked to build an application with a focus on a new customer segment. It targets and caters for professional and hobbyist designers to enable them to create astonishing print products with MOO. Historically mostly ignored but very valuable customers with high potential. The intent of the application was to allow this customer segment to develop print products by using the tools they know best and are the most comfortable with (Photoshop, InDesign, …). The goal of the application is to turn PDF’s into printable products and guide the customer throughout the process. We used a Python Flask back-end that is used as a back-end for front-end, exposing a specific set of tailored rest APIs. The front-end is written in React/Mobx with a strong emphasis on mobile first. A test driven first methodology and good CI pipelines allow us to ship new features to our customers at a fast pace.",
+      "summary": "At MOO I was part of a small team that got tasked to build a new application focussed on professional and hobbyist designers to enable them to create astonishing print products. In its essence this was an upload experience that guided customers through the process of putting their custom design on a card and get a high quality product shipped right to their door step. I worked in an agile team focussed both on frontend and backend. A test driven first methodology and good CI/CD practices allowed us to ship new features to our customers on a daily basis. I was also involved in a wider initiative to help create a shared design, style and component library. I kicked of the tires for a new react component library that helped teams deliver new UI features faster and reduce duplication across the company. With the HR department I helped to ensure our recruitment campaigns were inviting to a diverse range of applicants.",
       "highlights": [
-        "React",
-        "Redux",
-        "Mobx",
-        "JavaScript",
-        "Babel",
-        "Webpack",
-        "Sass",
-        "Styled Components",
-        "Python",
-        "Flask",
-        "Gunicorn",
-        "Gitlab",
-        "Git",
-        "Kubernetes",
-        "Docker",
-        "Linux",
-        "AWS"
+        "Developed shared components library in react that was conform the company design guidelines.",
+        "Frontend: React, Redux, Mobx, HTML5, Sass, Styled Components, JavaScript, Babel, Webpack",
+        "Backend: Python, Flask, Gunicorn, Node.js",
+        "CI/Devops: Gitlab, Git, AWS, Linux, Kubernetes, Docker"
       ]
     },
     {
@@ -68,64 +55,41 @@
       "url": "https://marksandspencer.com",
       "startDate": "2015-11-01",
       "endDate": "2016-12-31",
-      "summary": "I worked as part of a cross-functional agile team tasked to deliver an in-house rebuild of the Marks & Spencer’s Christmas Food to Order service. The application was developed as a modern twelve-factor app running on multiple cloud providers using Cloud Foundry allowing us to have high availability. I worked on both front-end and back-end for this application. The application was a great success with an uplift of 25% in sales year on year.",
+      "summary": "I worked as part of a cross functional agile team building a brand new Christmas Food to Order platform, allowing customers to order their Christmas and New Year's dinner. This was a re-platforming project set out to replace the previous website, be more flexible and attractive to customers. It smashed its objectives and was a great success with an uplift in sales year on year. The application was developed following twelve-factor app methodologies running on multiple cloud providers and regions, allowing us to have high availability.",
       "highlights": [
-        "Progressive enhancement",
-        "Sass",
-        "RxJS",
-        "Javascript",
-        "Babel",
-        "Webpack",
-        "Python 3.5",
-        "Flask",
-        "Jinja2",
-        "Django",
-        "Waitress",
-        "Github",
-        "Git",
-        "Cloud Foundry",
-        "Codeship"
+        "12 factor web application deployed to several cloud foundry providers and regions",
+        "Frontend: Progressive enhancement, Sass, RxJS, Javascript, Babel, Webpack, AngularJS, ...",
+        "Backend: Python 3, Flask, Jinja2, Waitress, Node.js",
+        "CI/Devops: Github, Git, Cloud Foundry, Codeship"
       ]
     },
     {
       "name": "SDWorx",
       "location": "Antwerp, BE",
-      "description": "SD Worx is a Belgian based HR and payroll company. The company provides services related to employment, salary calculations, social legislation, taxation and human resources.",
+      "description": "SDWorx is a Belgian based HR and payroll company. The company provides services related to employment, salary calculations, social legislation, taxation and human resources.",
       "position": "Software Engineer",
       "url": "https://sdworx.com",
       "startDate": "2015-05-01",
       "endDate": "2015-10-31",
       "summary": "As a software engineer I was involved in the development of their main web portal. High availability and strong performance were key for the project. I was heavily involved in making their website mobile friendly and I got involved in the development and maintenance of internal micro sites.",
       "highlights": [
-        "AngularJS",
-        "RxJS",
-        "Typescript",
-        "Sass",
-        "Less",
-        "ASP.NET MVC",
-        "Web Forms",
-        "TeamCity"
+        "Frontend: AngularJS, TypeScript, JavaScript.",
+        "Backend: ASPNET MVC, Web Forms",
+        "CI/Devops: TeamCity"
       ]
     },
     {
       "name": "TecIT",
       "location": "Antwerp, BE",
-      "description": "For Tec IT I worked as a try and hire developer for a company called SD Worx.",
-      "position": "Analist Developer",
+      "description": "For Tec IT I worked as a try and hire developer for a company called SDWorx.",
+      "position": "Junior Analist Developer",
       "url": "https://tecit.be",
       "startDate": "2012-11-08",
       "endDate": "2015-04-30",
-      "summary": "I was given the opportunity to get exposed to a broad range of trainings and learned the ins and outs of web development. I gained experience in C#, ASPNET, Typescript, … The focus was heavily on their public website, but I also helped to setup several internal micro sites, like a marketing campaign management and contract management tool.",
+      "summary": "I was given the opportunity to get exposed to a broad range of trainings and learned the ins and outs of web development. I gained experience in C#, ASPNET, JavaScript, … The focus was heavily on internal micro sites, like a marketing campaign management and contract management tool.",
       "highlights": [
-        "HTML5",
-        "jQuery",
-        "BackBone",
-        "NodeJS",
-        "JavaScript",
-        "Typescript",
-        "C#",
-        "dotnet",
-        "ASP.NET"
+        "Frontend: jQuery, Backbone, gulp, Node.js, npm, JavaScript",
+        "Backend: ASP.NET Webforms, .NET"
       ]
     }
   ],
@@ -152,7 +116,7 @@
       "endDate": "2011-05-01",
       "courses": [
         "Erasmus international internship.",
-        "Development of an intelligent FAQ system in ASP.NET for students of the Halmstad University. I was acting as a developer in an international team."
+        "Developed an intelligent FAQ system in ASP.NET for students of the Halmstad University. I was part of an international team working on all aspects of the application."
       ]
     }
   ],
@@ -173,13 +137,14 @@
       ]
     },
     {
-      "name": "Web Development server side tech",
+      "name": "Server side",
       "keywords": [
         "Flask",
         "Gunicorn",
         "Jinja2",
         "Express",
         "Next.js",
+        "Node.js",
         "Azure Functions",
         "ASP.NET Core",
         "Razor",
@@ -187,7 +152,7 @@
       ]
     },
     {
-      "name": "Web Development UI tools and libraries",
+      "name": "Frontend UI libraries and frameworks",
       "keywords": [
         "React",
         "Redux",
@@ -203,20 +168,20 @@
       ]
     },
     {
-      "name": "Databases",
-      "keywords": [
-        "SQL",
-        "MYSQL",
-        "MongoDB"
-      ]
-    },
-    {
-      "name": "Cloud Providers and platforms I worked with",
+      "name": "Cloud Providers and Platforms",
       "keywords": [
         "Azure",
         "AWS",
         "Cloud Foundry",
         "Kubernetes"
+      ]
+    },
+    {
+      "name": "Databases",
+      "keywords": [
+        "SQL",
+        "MYSQL",
+        "MongoDB"
       ]
     }
   ],
@@ -250,9 +215,37 @@
     }
   ],
   "references": [],
-  "projects": [],
+  "projects": [
+    {
+      "name": "PDF Workflow",
+      "entity": "MOO",
+      "description": "",
+      "url": "https://moo.com/uk/pdf-workflow",
+      "highlights": [
+        "Python",
+        "Flask",
+        "React",
+        "Mobx",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    {
+      "name": "Christmas Food To Order",
+      "entity": "Marks & Spencer",
+      "description": "",
+      "url": "https://christmasfood.marksandspencer.com",
+      "highlights": [
+        "Python 3",
+        "Flask",
+        "Sass",
+        "JavaScript",
+        "Cloud Foundry"
+      ]
+    }
+  ],
   "meta": {
     "version": "v1.0.0",
-    "lastModified": "2019-01-17"
+    "lastModified": "2019-01-22"
   }
 }
