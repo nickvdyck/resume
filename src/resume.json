@@ -3,12 +3,11 @@
   "basics": {
     "name": "Nick Van Dyck",
     "label": "Full Stack Web Developer",
-    "picture": "https://avatars.githubusercontent.com/u/6469315?v=3",
+    "image": "https://avatars.githubusercontent.com/u/6469315?v=3",
     "email": "vandyck.nick@outlook.com",
-    "website": "https://nvd.codes",
+    "url": "https://nvd.codes",
     "summary": "I’m an enthusiastic and passionate senior software engineer with over 6 years of experience. I'm fond of all things web and always striving to build user friendly, scalable and stable web solutions that get users engaged. Trained in the dark arts of full stack development I have gained experience in a broad range of technologies and languages. Eventually I hope to pursue a role where I can have a high impact on the product. In my spare time I like to hack on open source or personal projects, read books or watch a good movie.",
     "location": {
-      "city": "Antwerp",
       "countryCode": "BE",
       "region": "Antwerp"
     },
@@ -31,6 +30,16 @@
     ]
   },
   "work": [
+    {
+      "name": "DataCamp",
+      "location": "Leuven, BE",
+      "description": "",
+      "position":"Software Engineer",
+      "url": "https://www.datacamp.com",
+      "startDate": "2019-03-01",
+      "summary": "I'm currently working at DataCamp on a team that tries to deliver a great learning experience.",
+      "highlights": []
+    },
     {
       "name": "MOO",
       "location": "London, UK",
@@ -243,9 +252,5 @@
         "Cloud Foundry"
       ]
     }
-  ],
-  "meta": {
-    "version": "v1.0.0",
-    "lastModified": "2019-01-22"
-  }
+  ]
 }

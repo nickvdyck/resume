@@ -22,8 +22,10 @@ $ErrorActionPreference = 'Stop'
 
 Remove-Item -Recurse $Output -ErrorAction Ignore
 
-Exec resume validate -l "src/resume.json"
+Exec dotnet tool restore
 
-Exec resume build -l "src/resume.json" -o "$Output"
+Exec resume validate -f "src/resume.json"
+
+Exec resume build -f "src/resume.json" -o "$Output"
 
 Copy-Item -Path "./src/resume.json" -Destination "$Output"
