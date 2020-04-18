@@ -1,7 +1,6 @@
 from pulumi import Config, export
 from pulumi_azure import cdn, core, storage
 
-from static import StorageStaticWebsite
 from cloudflare import create_dns_record
 
 config = Config(name="resume-infra")
@@ -14,23 +13,25 @@ resource_group = core.ResourceGroup('nvd-codes-resume')
 account = storage.Account('resumestorage',
     resource_group_name=resource_group.name,
     account_tier='Standard',
-    account_replication_type='LRS'
-)
-
-static_website = StorageStaticWebsite(
-    "resume-storage-static", account_name=account.name
+    account_replication_type='LRS',
+    enable_https_traffic_only=False,
+    static_website={
+        "indexDocument": "index.html",
+    }
 )
 
 cdn_profile = cdn.Profile(
-    "resume-cdn", resource_group_name=resource_group.name, sku="Standard_Microsoft"
+    "resume-cdn",
+    resource_group_name=resource_group.name,
+    sku="Standard_Microsoft"
 )
 
 endpoint = cdn.Endpoint(
     "resume-cdn-ep",
     resource_group_name=resource_group.name,
     profile_name=cdn_profile.name,
-    origin_host_header=static_website.hostname,
-    origins=[{"name": "blobstorage", "hostName": static_website.hostname}],
+    origin_host_header=account.primary_web_host,
+    origins=[{"name": "blobstorage", "hostName": account.primary_web_host}],
 )
 
 dns_record = create_dns_record(
