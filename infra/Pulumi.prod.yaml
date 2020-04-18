@@ -1,0 +1,10 @@
+config:
+  azure:environment: public
+  azure:location: westeurope
+  cloudflare:apiToken:
+    secure: AAABAP1cTJFckgfzPn+ZtqQQZGggoJPf9b5tnhtld//uKGZmjteXTK1mtL8DsPcxekModOVtRV4a5ViHkmI/nRCcNj5KPJLQ
+  cloudflare:email:
+    secure: AAABAGviKhJIpDs4zvPBst27HBpDzbwez+StQ3k/kDD94iYaYUT9YAV/rHHUVln0DYqjvAi/2II=
+  resume-infra:domain: nvd.codes
+  resume-infra:zone_id:
+    secure: AAABANOxE+AtW6gSZ13NZ91HME8WzMis5PBhvu9O1gGT8FrSb3S0IGg26xc/R9y8J9+g69wntAigGS9b8odUPg==

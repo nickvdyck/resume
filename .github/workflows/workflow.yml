@@ -5,12 +5,9 @@ on:
     branches:
       - master
 
-  pull_request:
-    branches:
-      - master
-
 jobs:
   build:
+    name: Build
     runs-on: windows-latest
 
     env:
@@ -33,3 +30,49 @@ jobs:
 
     - name: Build resume
       run: dotnet resume build -f ${env:RESUME_JSON}
+
+    - uses: actions/upload-artifact@v1
+      name: Store Resume artifacts
+      with:
+        name: resume
+        path: artifacts
+
+  deploy:
+    name: Deploy
+    needs: Build
+    runs-on: ubuntu-latest
+    container:
+      image: pulumi/actions
+      options: --entrypoint /bin/bash
+
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - uses: actions/download-artifact@v1
+      with:
+        name: resume
+
+    - name: Install pipenv
+      run: python3 -m pip install pipenv
+
+    - name: Pulumi Update
+      run: |
+        pipenv update
+        pipenv run /usr/bin/pulumi-action --non-interactive up -s prod
+      working-directory: infra
+      env:
+        PULUMI_CI: up
+
+    - name: Upload files
+      run: make deploy
+      env:
+        ARTIFACTS: /home/runner/work/resume/resume/resume
