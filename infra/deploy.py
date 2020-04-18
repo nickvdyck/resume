@@ -4,7 +4,7 @@ import stat
 import argparse
 
 from pathlib import Path
-from azure.storage.blob import BlobServiceClient
+from azure.storage.blob import BlobServiceClient, ContentSettings
 
 
 def is_input_redirected() -> bool:
@@ -18,6 +18,18 @@ def is_input_redirected() -> bool:
             return True
         else:
             return False
+
+
+content_types_map = {
+    ".html": "text/html",
+    ".pdf": "application/pdf"
+}
+
+
+def get_content_type_for_file(filename: str, fallback="text/plain") -> str:
+    extension = Path(filename).suffix
+    return content_types_map.get(extension, fallback)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -54,4 +66,12 @@ if __name__ == "__main__":
         relative = os.path.relpath(file, cwd)
 
         print("Uploading file: {0}".format(file))
-        blob_container.upload_blob(relative, file.read_bytes(), overwrite=True)
+
+        content_type = get_content_type_for_file(relative)
+        content_settings = ContentSettings(content_type=content_type)
+        blob_container.upload_blob(
+            relative,
+            file.read_bytes(),
+            overwrite=True,
+            content_settings=content_settings,
+        )
