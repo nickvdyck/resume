@@ -69,7 +69,7 @@ jobs:
     - name: Pulumi Update
       run: |
         pipenv update
-        pipenv run /usr/bin/pulumi-action --non-interactive up -s prod
+        pipenv run /usr/bin/pulumi-action up --non-interactive --suppress-outputs -s prod
       working-directory: infra
       env:
         PULUMI_CI: up
