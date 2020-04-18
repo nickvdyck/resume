@@ -29,7 +29,9 @@ jobs:
       run: dotnet resume validate -f ${env:RESUME_JSON}
 
     - name: Build resume
-      run: dotnet resume build -f ${env:RESUME_JSON}
+      run: |
+        dotnet resume build -f ${env:RESUME_JSON}
+        cp artifacts/resume.html artifacts/index.html
 
     - uses: actions/upload-artifact@v1
       name: Store Resume artifacts
